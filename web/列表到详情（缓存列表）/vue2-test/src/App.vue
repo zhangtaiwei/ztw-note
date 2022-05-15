@@ -1,15 +1,17 @@
 <template>
-  <keep-alive>
-    <router-view/>
-  </keep-alive>
+  <div style="height: 100%; overflow: auto;">
+
+    <keep-alive>
+      <router-view  v-if="$route.meta.keepAlive" />
+    </keep-alive>
+    <router-view  v-if="!$route.meta.keepAlive" />
+
+  </div>
 </template>
 
 <script>
 export default {
   name: 'App',
-  data() {
-    return {}
-  },
 }
 </script>
 

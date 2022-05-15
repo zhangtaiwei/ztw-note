@@ -10,11 +10,17 @@ export default new Router({
       path: '/',
       name: 'home',
       component: ()=> import('src/pages/home'),
+      meta: {
+        keepAlive: true
+      }
     },
     {
       path: '/list',
       name: 'list',
       component: ()=> import('src/pages/list'),
+      meta: {
+        keepAlive: true
+      }
     },
     {
       path: '/detail',

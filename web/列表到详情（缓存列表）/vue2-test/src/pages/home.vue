@@ -24,6 +24,7 @@ import navBar from '../components/nav-bar'
 import backTop from '../components/back-top'
 
 export default {
+  name: 'home',
   components: {
     navBar,
     backTop,
@@ -50,7 +51,6 @@ export default {
     this.$nextTick(()=> {
       // 记录滚动距离
       this.containerEl.onscroll = ()=> {
-        console.log(111)
         this.scrollTo = this.containerEl.scrollTop
       }
     })

@@ -19,6 +19,7 @@ import navBar from '../components/nav-bar'
 import backTop from '../components/back-top'
 
 export default {
+  name: 'detail',
   components: {
     navBar,
     backTop,

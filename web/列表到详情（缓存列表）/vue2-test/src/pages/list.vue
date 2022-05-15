@@ -24,6 +24,7 @@ import navBar from '../components/nav-bar'
 import backTop from '../components/back-top'
 
 export default {
+  name: 'list',
   components: {
     navBar,
     backTop,
