@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>点</title>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+
+  <style>
+    body{padding: 0; margin: 0;}
+    #map{position: absolute; top: 0; bottom: 0; width: 100%;}
+  </style>
+
+</head>
+<body>
+
+  <div id="map"></div>
+
+  <script>
+
+    mapboxgl.accessToken = 'pk.eyJ1Ijoiemhhbmd0YWl3ZWkiLCJhIjoiY2w4bHNkbGhhMGU2djNvcWpxM2xweXFsZSJ9.fjFvp2Vf5B1VupuMUxwVrA'
+
+    const map = new mapboxgl.Map({
+      container: 'map',
+      zoom: 3,
+      style: 'mapbox://styles/mapbox/streets-v11',
+      cneter: [0,0],
+    })
+
+    map.on('load', ()=> {
+
+      map.addSource('my-data', {
+        "type": "geojson",
+        "data": {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+        }
+      });
+
+      map.addLayer({
+          id: 'points-of-interest',
+          source: 'my-data',
+          type: 'circle',
+          paint: {
+            'circle-radius': 20,
+            'circle-color': 'blue'
+          },
+          layout: {
+          }
+      });
+    })
+  </script>
+
+
+</body>
+</html>
